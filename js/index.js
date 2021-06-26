@@ -5,11 +5,12 @@ $('#donateButton').on('click', function() {
 $('.donation').on('click', function() {
     const id = this.id;
     const isActive = $(`#${id}`).hasClass('active');
-    const anyActive = $('.donation').hasClass('active');
     if (isActive) {
         $(`#${id}`).removeClass('active');
         $(`#${id}`).addClass('inactive');
-    } else if (!anyActive) {
+    } else {
+        $('.active').addClass('inactive');
+        $('.active').removeClass('active');
         $(`#${id}`).removeClass('inactive');
         $(`#${id}`).addClass('active');
     }
